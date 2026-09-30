@@ -1,0 +1,543 @@
+/* -------------------------------------------
+   1. CSS VARIABLES & RESET
+------------------------------------------- */
+:root {
+  --primary: #b100f1;          
+  --primary-accent: #3e0669;   
+  --secondary: #0f172a;        
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  --radius: 14px;
+  --transition: all 0.25s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Prompt', 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+/* -------------------------------------------
+   2. NAVBAR
+------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo span {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-accent);
+}
+
+/* -------------------------------------------
+   3. LAYOUT & HELPERS
+------------------------------------------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4.5rem 0;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-head h2 {
+  font-size: 2rem;
+  color: var(--secondary);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.section-head h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-accent);
+  border-radius: 2px;
+}
+
+.section-head p {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.text-blue { color: #2563eb; }
+.text-green { color: #10b981; }
+
+/* -------------------------------------------
+   4. HERO SECTION
+------------------------------------------- */
+.hero {
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1.2;
+}
+
+.badge-uni {
+  display: inline-block;
+  background: #eff6ff;
+  color: var(--primary-accent);
+  border: 1px solid #bfdbfe;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-text h1 {
+  font-size: 2.4rem;
+  color: var(--secondary);
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.hero-text .subtitle {
+  font-size: 1.2rem;
+  color: var(--primary-accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-text .desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  max-width: 580px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  background: #fff;
+  border-color: var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+.hero-image {
+  flex: 0.8;
+  text-align: center;
+}
+
+.profile-frame {
+  width: 270px;
+  height: 270px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+  border: 6px solid #fff;
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------
+   5. EDUCATION SECTION
+------------------------------------------- */
+.edu-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.edu-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.edu-icon {
+  width: 54px;
+  height: 54px;
+  background: #eff6ff;
+  color: var(--primary-accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.edu-info h3 {
+  font-size: 1.35rem;
+  color: var(--secondary);
+}
+
+.edu-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.program-highlight {
+  background: #f1f5f9;
+  border-left: 4px solid var(--primary-accent);
+  padding: 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 1rem;
+}
+
+.program-highlight h4 {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.program-highlight p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------
+   6. EXPERIENCE & TRAINING
+------------------------------------------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.timeline-box {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.box-title {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid #cbd5e1;
+}
+
+.timeline-year {
+  display: inline-block;
+  background: var(--primary-accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item h4 {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------
+   7. CERTIFICATIONS (เกียรติบัตร)
+------------------------------------------- */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.cert-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.cert-img-wrap {
+  width: 100%;
+  height: 220px;
+  background-color: #e2e8f0;
+  overflow: hidden;
+}
+
+.cert-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover .cert-img-wrap img {
+  transform: scale(1.03);
+}
+
+.cert-info {
+  padding: 1.5rem;
+}
+
+.cert-info h4 {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 0.4rem;
+}
+
+.cert-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* -------------------------------------------
+   8. CONTACT GRID
+------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.contact-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-accent);
+}
+
+.contact-card i {
+  font-size: 2.2rem;
+}
+
+.contact-card.linkedin i { color: #0a66c2; }
+.contact-card.facebook i { color: #1877f2; }
+.contact-card.instagram i { color: #e1306c; }
+.contact-card.line i { color: #06c755; }
+.contact-card.spumail i { color: #2563eb; }
+.contact-card.gmail i { color: #ea4335; }
+
+.platform-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--secondary);
+}
+
+.user-id {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+/* -------------------------------------------
+   9. FOOTER
+------------------------------------------- */
+footer {
+  background: var(--secondary);
+  color: #94a3b8;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #334155;
+}
+
+footer p {
+  margin-bottom: 0.3rem;
+}
+
+/* -------------------------------------------
+   10. RESPONSIVE DESIGN
+------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 1.85rem;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .profile-frame {
+    width: 220px;
+    height: 220px;
+  }
+}
+/* -------------------------------------------
+   ส่วนเพิ่มเติมสำหรับการศึกษาและเกียรติบัตร
+------------------------------------------- */
+
+/* ระยะห่างระหว่างกล่องการศึกษา มหาวิทยาลัย และ มัธยม */
+.edu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ปรับสีไอคอนและเส้นขอบของระดับมัธยมศึกษา (โทนสีส้มทอง) */
+.edu-icon.school {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.program-highlight.school {
+  border-left-color: #f59e0b;
+}
+
+/* ปรับขนาดตัวอักษรรายละเอียดของเกียรติบัตรให้อ่านง่าย */
+.cert-detail {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
